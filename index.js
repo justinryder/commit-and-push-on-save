@@ -26,7 +26,8 @@ if (!shell.which('git')) {
 
 args
   .option('path', 'The path to watch for changes', '/')
-  .option('count-start', 'The number to start counting commits from', 1);
+  .option('count-start', 'The number to start counting commits from', 1)
+  .option('commit-message-prefix', 'Commit message prefix to use', 'Auto-commit #');
 
 const options = args.parse(process.argv);
 
@@ -78,6 +79,7 @@ const doesNotMatchAny = (...patterns) =>
       .every(noMatch => noMatch(value));
 
 console.log('Committing any pre-existing changes');
+
 shipIt();
 
 console.log(`Watching for changes in ${options.path}`);
