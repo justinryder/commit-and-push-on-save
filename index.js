@@ -82,14 +82,17 @@ watch.createMonitor(
   },
   monitor => {
     monitor.on('created', (f, stat) => {
+      console.log('New file detected');
       shipIt();
     });
 
     monitor.on('changed', (f, curr, prev) => {
+      console.log('File change detected');
       shipIt();
     });
 
     monitor.on('removed', (f, stat) => {
+      console.log('File removal detected');
       shipIt();
     });
   }
