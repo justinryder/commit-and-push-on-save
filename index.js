@@ -51,7 +51,7 @@ const rejectWithMessageIfFalse = message =>
 const makeCounter = (value = 0) =>
   () => value++;
 
-const commitCounter = makeCounter(options['count-start']);
+const commitCounter = makeCounter(options.countStart);
 
 const shipIt = arg =>
   pipePromise(
