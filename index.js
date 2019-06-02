@@ -25,7 +25,8 @@ if (!shell.which('git')) {
 }
 
 args
-  .option('path', 'The path to watch for changes', '/');
+  .option('path', 'The path to watch for changes', '/')
+  .option('count-start', 'The number to start counting commits from', 1);
 
 const options = args.parse(process.argv);
 
@@ -50,7 +51,7 @@ const rejectWithMessageIfFalse = message =>
 const makeCounter = (value = 0) =>
   () => value++;
 
-const commitCounter = makeCounter();
+const commitCounter = makeCounter(options['count-start']);
 
 const shipIt = arg =>
   pipePromise(
