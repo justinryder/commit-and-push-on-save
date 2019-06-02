@@ -61,7 +61,7 @@ const shipIt = arg =>
     rejectWithMessageIfFalse('git diff shows no changes'),
     gitAdd,
     commitCounter,
-    gitCommitWithMessage('Auto-commit #'),
+    gitCommitWithMessage(options.commitMessagePrefix),
     gitPush,
   )(arg).then(null, message => console.log('Error "shipping it":', message));
 
