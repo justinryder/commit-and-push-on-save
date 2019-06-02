@@ -1,4 +1,5 @@
 const args = require('args');
+const path = require('path');
 const shell = require('shelljs');
 const watch = require('watch');
 
@@ -44,16 +45,16 @@ const shipIt = pipePromise(
 
 shipIt();
 
-// watch.createMonitor(options.path, monitor => {
-//   monitor.on('created', () => {
-//     shipIt();
-//   });
-//
-//   monitor.on('changed', () => {
-//     shipIt();
-//   });
-//
-//   monitor.on('removed', () => {
-//     shipIt();
-//   });
-// });
+watch.createMonitor(path.join(__dirname, options.path), monitor => {
+  monitor.on('created', (f, stat) => {
+    shipIt();
+  });
+
+  monitor.on('changed', (f, curr, prev) => {
+    shipIt();
+  });
+
+  monitor.on('removed', (f, stat) => {
+    shipIt();
+  });
+});
