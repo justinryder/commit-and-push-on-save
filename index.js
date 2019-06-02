@@ -45,10 +45,7 @@ const rejectIfFalse = value =>
 
 const rejectWithMessageIfFalse = message =>
   value =>
-    new Promise((resolve, reject) => {
-      console.log('rejectWithMessageIfFalse', message, value);
-      return value ? resolve(value) : reject(message);
-    });
+    new Promise((resolve, reject) => value ? resolve(value) : reject(message));
 
 const shipIt = arg =>
   pipePromise(
