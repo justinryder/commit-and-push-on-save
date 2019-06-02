@@ -77,6 +77,11 @@ const doesNotMatchAny = (...patterns) =>
     patterns.map(pattern => doesNotMatch(pattern))
       .every(noMatch => noMatch(value));
 
+console.log('Committing any pre-existing changes');
+shipIt();
+
+console.log(`Watching for changes in ${options.path}`);
+
 watch.createMonitor(
   path.join(__dirname, options.path),
   {
