@@ -57,8 +57,6 @@ const shipIt = arg =>
     gitPush,
   )(arg).then(null, message => console.log('Error "shipping it":', message));
 
-// shipIt();
-
 const matches = pattern =>
   value =>
     Boolean(value.match(pattern));
