@@ -5,4 +5,5 @@ Node.js script that commits all changes and pushes to git on save
 
 ## Options
 
-* `--path` Path to watch for changes
+* `--path=/` Path to watch for changes
+* `--count-start=1` What number to start counting commits from (used in commit message)
