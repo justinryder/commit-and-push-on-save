@@ -8,10 +8,6 @@ const resolvedPromise = value => new Promise(resolve => resolve(value));
 const execPromise = (command) =>
   new Promise(resolve => shell.exec(command, resolve));
 
-const pipe = (...fns) =>
-  (arg) =>
-    fns.reduce((val, fn) => fn(val), arg);
-
 const pipePromise = (...promises) =>
   (arg) =>
     promises.reduce(
