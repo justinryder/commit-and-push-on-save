@@ -18,7 +18,6 @@ const pipePromise = (...promises) =>
       (last, next) => last.then(next),
       new Promise(resolve => resolve(arg))
   );
-    // promises.reduce((val, promise) => promise(val).then(), arg);
 
 if (!shell.which('git')) {
   shell.echo('This script requires git');
