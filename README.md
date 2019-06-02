@@ -7,3 +7,4 @@ Node.js script that commits all changes and pushes to git on save
 
 * `--path=/` Path to watch for changes
 * `--count-start=1` What number to start counting commits from (used in commit message)
+* `--commit-message-prefix="Auto-commit #"` Commit message prefix to use
