@@ -1,0 +1,24 @@
+{
+  "name": "commit-and-push-on-save",
+  "version": "1.0.0",
+  "description": "Commits changes and pushes on save",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinryder/commit-and-push-on-save.git"
+  },
+  "author": "Justin Ryder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justinryder/commit-and-push-on-save/issues"
+  },
+  "homepage": "https://github.com/justinryder/commit-and-push-on-save#readme",
+  "dependencies": {
+    "args": "^5.0.1",
+    "shelljs": "^0.8.3",
+    "watch": "^1.0.2"
+  }
+}
