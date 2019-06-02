@@ -49,7 +49,7 @@ const rejectWithMessageIfFalse = message =>
 
 const shipIt = arg =>
   pipePromise(
-    log('Attempting to "ship it."'),
+    log('Attempting to "ship it"'),
     gitHasChanges,
     rejectWithMessageIfFalse('git diff shows no changes'),
     gitAdd,
