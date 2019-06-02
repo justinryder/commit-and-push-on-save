@@ -30,7 +30,8 @@ args
 const options = args.parse(process.argv);
 
 const gitAdd = () => execPromise('git add .');
-const gitCommit = () => execPromise('git commit -a -m "Auto-commit"');
+const gitCommitWithMessage = message => execPromise(`git commit -a -m "${message}"`);
+const gitCommit = () => gitCommitWithMessage('Auto-commit');
 const gitPush = () => execPromise('git push');
 const gitHasChanges = () =>
   execPromise('git diff --exit-code --quiet')
@@ -46,8 +47,10 @@ const rejectWithMessageIfFalse = message =>
   value =>
     new Promise((resolve, reject) => value ? resolve(value) : reject(message));
 
-const makeCounter = value =>
+const makeCounter = (value = 0) =>
   () => value++;
+
+const commitCounter = makeCounter();
 
 const shipIt = arg =>
   pipePromise(
@@ -55,6 +58,7 @@ const shipIt = arg =>
     gitHasChanges,
     rejectWithMessageIfFalse('git diff shows no changes'),
     gitAdd,
+    commitCounter,
     gitCommit,
     gitPush,
   )(arg).then(null, message => console.log('Error "shipping it":', message));
