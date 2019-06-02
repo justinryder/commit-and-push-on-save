@@ -46,6 +46,9 @@ const rejectWithMessageIfFalse = message =>
   value =>
     new Promise((resolve, reject) => value ? resolve(value) : reject(message));
 
+const makeCounter = value =>
+  () => value++;
+
 const shipIt = arg =>
   pipePromise(
     log('Attempting to "ship it"'),
